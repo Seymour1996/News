@@ -1,0 +1,21 @@
+
+# 数据库 及 Redis 配置    
+spring:
+  redis:
+    host: localhost
+    password:
+#  使用 MySQL 不用做任何修改
+  datasource:
+    url: jdbc:mysql://localhost:3306/news?useUnicode=true&characterEncoding=UTF-8
+    driver-class-name: com.mysql.jdbc.Driver
+    sql-script-encoding: utf-8
+    hikari:
+      max-lifetime: 1765000
+      maximum-pool-size: 10
+    username: root
+    password: password
+
+# Mybatis 配置
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true    # 驼峰命名转换
