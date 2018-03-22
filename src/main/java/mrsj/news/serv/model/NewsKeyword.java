@@ -2,6 +2,8 @@ package mrsj.news.serv.model;
 
 import lombok.Data;
 
+import javax.persistence.*;
+
 /**
  * @author Seymour
  * @version 1.0.0
@@ -9,12 +11,18 @@ import lombok.Data;
  * @github https://github.com/Seymour1996
  */
 @Data
+@Entity
 public class NewsKeyword {
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
+    @Column
     private String keyword;
 
+    @Column
     private Long newsId;
 
+    @Column
     private Double weight;
 }

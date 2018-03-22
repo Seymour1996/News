@@ -4,9 +4,14 @@ spring:
   redis:
     host: localhost
     password:
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: create
 #  使用 MySQL 不用做任何修改
   datasource:
-    url: jdbc:mysql://localhost:3306/news?useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/news?useUnicode=true&characterEncoding=UTF-8&useSSL=false
     driver-class-name: com.mysql.jdbc.Driver
     sql-script-encoding: utf-8
     hikari:
@@ -15,7 +20,7 @@ spring:
     username: root
     password: password
 
-# Mybatis 配置
-mybatis:
-  configuration:
-    map-underscore-to-camel-case: true    # 驼峰命名转换
+## Mybatis 配置
+#mybatis:
+#  configuration:
+#    map-underscore-to-camel-case: true    # 驼峰命名转换

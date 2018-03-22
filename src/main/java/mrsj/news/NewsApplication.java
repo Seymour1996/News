@@ -1,6 +1,5 @@
 package mrsj.news;
 
-import mrsj.news.job.KeywordsReceiver;
 import mrsj.news.job.Receiver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -2,6 +2,7 @@ package mrsj.news.serv.model;
 
 import lombok.Data;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -12,31 +13,48 @@ import java.util.Date;
  * @github https://github.com/Seymour1996
  */
 @Data
+@Entity
+@Table(name = "news")
 public class News implements Serializable{
-    //id
+    @Id
     private Long id;
 
+    @Column
     private String title;
 
+    @Column
     private String category;
 
+    @Column
+    @Lob
     private String content;
 
+    @Column
+    @Lob
     private String imageList;
 
+    @Column
     private String description;
 
+    @Column
     private Date time;
 
+    @Column
     private String sourceUrl;
 
+    @Column
     private String sourceSite;
 
+    @Column
     private Double score;
 
-    private Integer reads;
+    @Column
+    private Integer readNum;
 
-    private Integer like;
+    @Column
+    private Integer likeNum;
 
-    private Integer dislike;
+    @Column
+    private Integer dislikeNum;
+
 }

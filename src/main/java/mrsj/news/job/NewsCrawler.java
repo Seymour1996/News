@@ -6,6 +6,8 @@ import com.alibaba.fastjson.JSONObject;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import mrsj.news.NewsApplication;
+import mrsj.news.serv.dao.NewsKeywordRepository;
+import mrsj.news.serv.dao.NewsRepository;
 import mrsj.news.serv.model.News;
 import mrsj.news.serv.model.NewsKeyword;
 import mrsj.news.tools.JsoupUtils;
@@ -41,14 +43,18 @@ public class NewsCrawler {
     private final static String LIST_API="http://www.textvalve.com/htdatasub/subscribe/articles/toPublish/v2?userId=82&size=100&rnd0.456121920803368&page=";
     private final static String DETAIL_API="http://www.textvalve.com/htdatasub/subscribe/articles/v2/article-";
     public static String type = null;
-    private static List<NewsKeyword> keywordsList = new ArrayList<NewsKeyword>();
-@Autowired
-StringRedisTemplate stringRedisTemplate;
+
+    @Autowired
+    StringRedisTemplate stringRedisTemplate;
+    @Autowired
+    NewsKeywordRepository newsKeywordRepository;
+    @Autowired
+    NewsRepository newsRepository;
+
     @Scheduled(fixedRate = 60*20*1000)
     public void start() {
         try {
-            List<News> allNews = new ArrayList<News>();
-            for (int count = 1; count <= 1; count++) {
+            for (int count = 1; count <= 9; count++) {
                 JSONObject newsList = JsoupUtils.getJSON(LIST_API + "" + count);
                 JSONArray list = newsList.getJSONObject("data").getJSONArray("list");
                 for (Object object : list) {
@@ -80,11 +86,11 @@ StringRedisTemplate stringRedisTemplate;
                         newsKeyword.setKeyword(key1);
                         newsKeyword.setNewsId(news.getId());
                         newsKeyword.setWeight(weight);
-                        keywordsList.add(newsKeyword);
+                        newsKeywordRepository.save(newsKeyword);
                     }
-                    System.out.println(type);
+                    System.out.println("id:" +news.getId()+" "+type);
                     type = null;
-                    allNews.add(news);
+                    newsRepository.save(news);
                 }
                 System.out.println("page:" + count + " crawled");
             }
