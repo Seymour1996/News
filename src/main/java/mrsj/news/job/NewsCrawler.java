@@ -88,14 +88,11 @@ public class NewsCrawler {
                         newsKeyword.setWeight(weight);
                         newsKeywordRepository.save(newsKeyword);
                     }
-                    System.out.println("id:" +news.getId()+" "+type);
+                        System.out.println("id:" + news.getId() + " " + type);
                     type = null;
                     newsRepository.save(news);
                 }
-                System.out.println("page:" + count + " crawled");
             }
-            System.out.println("finish");
         }catch (Exception e){}
     }
-
 }

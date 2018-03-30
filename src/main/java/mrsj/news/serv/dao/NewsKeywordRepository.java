@@ -10,5 +10,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @create 2018/3/22 13:54
  * @github https://github.com/Seymour1996
  */
-public interface NewsKeywordRepository extends JpaRepository<NewsKeyword                                                                                                                                                                                                                                                                                                                                                                                                                                ,Long> {
+public interface NewsKeywordRepository extends JpaRepository<NewsKeyword,Long> {
+
 }
