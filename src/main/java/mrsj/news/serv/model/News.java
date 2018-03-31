@@ -46,15 +46,15 @@ public class News implements Serializable{
     private String sourceSite;
 
     @Column
-    private Double score;
+    private Double score=0d;
 
     @Column
-    private Integer readNum;
+    private Integer readNum=0;
 
     @Column
-    private Integer likeNum;
+    private Integer likeNum=0;
 
     @Column
-    private Integer dislikeNum;
+    private Integer dislikeNum=0;
 
 }

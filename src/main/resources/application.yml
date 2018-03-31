@@ -8,7 +8,7 @@ spring:
     properties:
       hibernate:
         hbm2ddl:
-          auto: update
+          auto: create
 #  使用 MySQL 不用做任何修改
   datasource:
     url: jdbc:mysql://localhost:3306/news?useUnicode=true&characterEncoding=UTF-8&useSSL=false

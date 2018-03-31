@@ -25,35 +25,35 @@ public class User implements Serializable{
     private String password;
 
     @Column
-    private String macAddress;
+    private String email;
 
     @Column
-    private Integer sports;
+    private Integer sports=0;
 
     @Column
-    private Integer finance;
+    private Integer finance=0;
 
     @Column
-    private Integer house;
+    private Integer house=0;
 
     @Column
-    private Integer home;
+    private Integer home=0;
 
     @Column
-    private Integer education;
+    private Integer education=0;
 
     @Column
-    private Integer technology;
+    private Integer technology=0;
 
     @Column
-    private Integer fashion;
+    private Integer fashion=0;
 
     @Column
-    private Integer politics;
+    private Integer politics=0;
 
     @Column
-    private Integer game;
+    private Integer game=0;
 
     @Column
-    private Integer entertainment;
+    private Integer entertainment=0;
 }
