@@ -14,4 +14,5 @@ import java.util.List;
  */
 public interface UserInterestRepository extends JpaRepository<UserInterest,Long> {
     List<UserInterest> findByUserId(Long userId);
+    UserInterest findByUserIdAndKeyword(Long userId,String Keyword);
 }

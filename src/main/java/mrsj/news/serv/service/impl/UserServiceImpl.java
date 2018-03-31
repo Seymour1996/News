@@ -24,4 +24,9 @@ public class UserServiceImpl implements UserService{
         if(user1==null) return "error";
         else return "success";
     }
+    @Override
+    public User findByUserId(Long userId){
+        User user=userRepository.findById(userId).get();
+        return user;
+    }
 }

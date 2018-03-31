@@ -12,4 +12,6 @@ import java.util.List;
  */
 public interface UserInterestService {
     List<UserInterest> findByUserId(Long userId);
+
+    UserInterest save(UserInterest userInterest);
 }

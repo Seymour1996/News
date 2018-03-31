@@ -10,4 +10,5 @@ import mrsj.news.serv.model.User;
  */
 public interface UserService {
     String save(User user);
+    User findByUserId(Long userId);
 }

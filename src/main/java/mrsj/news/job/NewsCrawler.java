@@ -51,7 +51,7 @@ public class NewsCrawler {
     @Autowired
     NewsRepository newsRepository;
 
-    //@Scheduled(fixedRate = 60*20*1000)
+    @Scheduled(fixedRate = 60*20*1000)
     public void start() {
         try {
             for (int count = 1; count <= 9; count++) {
