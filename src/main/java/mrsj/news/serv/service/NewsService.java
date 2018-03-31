@@ -18,4 +18,6 @@ public interface NewsService {
     List<News> findNews(String category,int page,int size);
 
     News findById(Long id);
+
+    News save(News news);
 }

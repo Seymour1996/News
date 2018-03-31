@@ -24,6 +24,11 @@ public class UserAction {
     @Column
     private Long newsId;
 
+    //0浏览 1喜欢 2不喜欢
+    @Column
+    private Integer type;
+
     @Column
     private Date time;
+
 }

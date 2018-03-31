@@ -17,4 +17,6 @@ public interface NewsRepository extends JpaRepository<News,Long> {
     List<News> findByCategory(String category, Pageable pageable);
 
     Optional<News> findById(Long id);
+
+
 }

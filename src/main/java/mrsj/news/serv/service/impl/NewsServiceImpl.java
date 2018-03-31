@@ -32,4 +32,10 @@ public class NewsServiceImpl implements NewsService {
     public News findById(Long id){
         return newsRepository.findById(id).get();
     }
+
+    @Override
+    public News save(News news){
+        return newsRepository.save(news);
+    }
+
 }
