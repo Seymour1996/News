@@ -4,7 +4,12 @@ import mrsj.news.serv.dao.UserRepository;
 import mrsj.news.serv.model.User;
 import mrsj.news.serv.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author Seymour
@@ -25,8 +30,29 @@ public class UserServiceImpl implements UserService{
         else return "success";
     }
     @Override
+    public void update(User user){
+        User user1 =userRepository.save(user);
+    }
+    @Override
     public User findByUserId(Long userId){
         User user=userRepository.findById(userId).get();
         return user;
+    }
+    @Override
+    public List<User> findUser(int page, int size){
+        Sort sort = new Sort(Sort.Direction.ASC,"id"); //创建时间降序排序
+        Pageable pageable = new PageRequest(page,size,sort);
+        List<User> users=userRepository.findAll(pageable).getContent();
+        return users;
+    }
+    @Override
+    public boolean delete(Long id){
+        try {
+            userRepository.delete(userRepository.getOne(id));
+            return true;
+        }
+        catch(Exception e){
+            return false;
+        }
     }
 }

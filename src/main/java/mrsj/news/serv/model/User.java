@@ -28,6 +28,12 @@ public class User implements Serializable{
     private String email;
 
     @Column
+    private String nickname;
+
+    @Column
+    private String phone;
+
+    @Column
     private Integer sports=0;
 
     @Column

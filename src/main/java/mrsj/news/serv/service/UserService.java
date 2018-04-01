@@ -2,6 +2,8 @@ package mrsj.news.serv.service;
 
 import mrsj.news.serv.model.User;
 
+import java.util.List;
+
 /**
  * @author Seymour
  * @version 1.0.0
@@ -11,4 +13,7 @@ import mrsj.news.serv.model.User;
 public interface UserService {
     String save(User user);
     User findByUserId(Long userId);
+    List<User> findUser(int page, int size);
+    boolean delete(Long id);
+    void update(User user);
 }
