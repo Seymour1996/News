@@ -1,6 +1,7 @@
 package mrsj.news.controller;
 
 import mrsj.news.serv.model.News;
+import mrsj.news.serv.service.NewsKeywordService;
 import mrsj.news.serv.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,11 +21,13 @@ import java.util.List;
 public class NewsController {
     @Autowired
     private NewsService newsService;
+    @Autowired
+    private NewsKeywordService newsKeywordService;
 
     @GetMapping("/news")
     @ResponseBody
-    public List<News> getNews(@RequestParam String category,@RequestParam int page,@RequestParam int size){
-        List<News> news= newsService.findNews(category,page,size);
+    public List<News> getNews(@RequestParam String keyword,@RequestParam int page,@RequestParam int size){
+        List<News> news= newsKeywordService.findNewsByKeyword(keyword,page,size);
         return news;
     }
 

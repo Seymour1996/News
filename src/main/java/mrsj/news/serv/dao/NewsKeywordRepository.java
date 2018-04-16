@@ -2,6 +2,7 @@ package mrsj.news.serv.dao;
 
 import mrsj.news.serv.model.News;
 import mrsj.news.serv.model.NewsKeyword;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -14,4 +15,6 @@ import java.util.List;
  */
 public interface NewsKeywordRepository extends JpaRepository<NewsKeyword,Long> {
     List<NewsKeyword> findByNewsId(Long newsId);
+
+    List<NewsKeyword> findByKeyword(String keyword,Pageable pageable);
 }

@@ -70,6 +70,7 @@ public class NewsCrawler {
                     JSONObject detail = JsoupUtils.getJSON(DETAIL_API + "" + news.getId());
                     String content = detail.getJSONObject("data").get("content").toString();
                     news.setContent(content);
+                    System.out.println(content);
                     //cnn分类
                     stringRedisTemplate.convertAndSend("content", news.getContent());
                     while (type == null) {
@@ -88,7 +89,7 @@ public class NewsCrawler {
                         newsKeyword.setWeight(weight);
                         newsKeywordRepository.save(newsKeyword);
                     }
-                        System.out.println("id:" + news.getId() + " " + type);
+//                        System.out.println("id:" + news.getId() + " " + type);
                     type = null;
                     newsRepository.save(news);
                 }

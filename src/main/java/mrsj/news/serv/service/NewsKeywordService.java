@@ -1,5 +1,6 @@
 package mrsj.news.serv.service;
 
+import mrsj.news.serv.model.News;
 import mrsj.news.serv.model.NewsKeyword;
 
 import java.util.List;
@@ -12,4 +13,6 @@ import java.util.List;
  */
 public interface NewsKeywordService {
     List<NewsKeyword> findByNewsId(Long newsId);
+
+    List<News> findNewsByKeyword(String keyword, int page, int size);
 }
